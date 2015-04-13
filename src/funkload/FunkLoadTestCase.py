@@ -457,9 +457,9 @@ class FunkLoadTestCase(unittest.TestCase):
         """Make an HTTP DELETE request to the specified url."""
         return self.method('delete', url, None, description, ok_codes)
 
-    def head(self, url, description=None, ok_codes=None):
+    def head(self, url, params=None, description=None, ok_codes=None):
         """Make an HTTP HEAD request to the specified url with params."""
-        return self.method('head', url, None, description, ok_codes)
+        return self.method('head', url, params, description, ok_codes)
 
     def options(self, url, description=None, ok_codes=None):
         """Make an HTTP OPTIONS request to the specified url."""
