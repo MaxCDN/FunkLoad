@@ -348,10 +348,10 @@ def WF_fetch(self, url, postdata=None, server=None, port=None, protocol=None,
     if postdata is not None:
         if webproxy:
             h.putrequest(method.upper(), "%s://%s%s" % (protocol,
-                                                        host_header, url))
+                                                        host_header, url),skip_accept_encoding = 1)
         else:
             # Normal post
-            h.putrequest(method.upper(), url)
+            h.putrequest(method.upper(), url,skip_accept_encoding = 1)
         if postdata:
             if isinstance(postdata, Data):
                 # User data and content_type
@@ -377,9 +377,9 @@ def WF_fetch(self, url, postdata=None, server=None, port=None, protocol=None,
     else:
         if webproxy:
             h.putrequest(method.upper(), "%s://%s%s" % (protocol,
-                                                        host_header, url))
+                                                        host_header, url),skip_accept_encoding = 1)
         else:
-            h.putrequest(method.upper(), url)
+            h.putrequest(method.upper(), url, skip_accept_encoding = 1)
 
     # Other Full Request headers
     if self.authinfo:
