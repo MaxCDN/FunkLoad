@@ -890,7 +890,7 @@ class FunkLoadTestCase(unittest.TestCase):
             textchars = bytearray([7,8,9,10,12,13,27]) + bytearray(range(0x20, 0x100))
             is_binary_string = lambda bytes: bool(bytes.translate(None, textchars))
 	    body_data = response.body
-	    if is_binary_string(response.body):
+	    if body_data is not None and is_binary_string(response.body):
                 body_data = "(BINARY DATA)"	
             message = '\n'.join([
                 response_start,
